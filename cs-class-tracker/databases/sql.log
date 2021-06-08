@@ -1,0 +1,380 @@
+timestamp: 2021-04-28T11:43:30.055344
+CREATE TABLE "py4web_session"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "rkey" CHAR(512),
+    "rvalue" TEXT,
+    "expiration" INTEGER,
+    "created_on" TIMESTAMP,
+    "expires_on" TIMESTAMP
+);
+success!
+timestamp: 2021-04-28T11:43:30.096521
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "email" CHAR(512) UNIQUE,
+    "password" CHAR(512),
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "sso_id" CHAR(512),
+    "action_token" CHAR(512),
+    "last_password_change" TIMESTAMP,
+    "past_passwords_hash" TEXT
+);
+success!
+timestamp: 2021-04-28T11:43:30.114514
+CREATE TABLE "auth_user_tag_groups"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "path" CHAR(512),
+    "record_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2021-04-28T11:43:30.706047
+CREATE TABLE "contact"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "firstname" CHAR(512),
+    "lastname" CHAR(512),
+    "createdby" CHAR(512)
+);
+success!
+timestamp: 2021-04-28T15:23:58.385975
+CREATE TABLE "phone"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "contact_id" INTEGER REFERENCES "contact" ("id") ON DELETE CASCADE  ,
+    "phone_number" CHAR(512),
+    "kind" CHAR(512)
+);
+success!
+timestamp: 2021-05-20T11:47:21.559979
+ALTER TABLE "contact" ADD "classname" CHAR(512);
+timestamp: 2021-05-20T11:47:21.590501
+ALTER TABLE "contact" ADD "classid" CHAR(512);
+success!
+timestamp: 2021-05-20T11:47:21.615233
+ALTER TABLE "phone" ADD "student_name" CHAR(512);
+timestamp: 2021-05-20T11:47:21.656059
+ALTER TABLE "phone" ADD "year" CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2021-05-24T12:13:02.001420
+CREATE TABLE "cs_class"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "classname" CHAR(512),
+    "classid" CHAR(512),
+    "createdby" CHAR(512)
+);
+success!
+timestamp: 2021-05-24T12:14:34.873094
+CREATE TABLE "student"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "class_id" INTEGER REFERENCES "cs_class" ("id") ON DELETE CASCADE  ,
+    "student_name" CHAR(512),
+    "year" CHAR(512)
+);
+success!
+success!
+success!
+success!
+success!
+timestamp: 2021-05-24T12:24:37.351314
+ALTER TABLE "student" ADD "student_email" CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2021-05-27T18:26:15.787019
+CREATE TABLE "friends_list"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "student_email" INTEGER REFERENCES "student" ("id") ON DELETE CASCADE  ,
+    "friend_name" CHAR(512),
+    "friend_year" CHAR(512),
+    "friend_email" CHAR(512)
+);
+success!
+success!
+success!
+success!
+timestamp: 2021-05-27T18:30:17.162521
+ALTER TABLE "friends_list" ADD "friend_id" CHAR(512);
+success!
+success!
+success!
+success!
+success!
+timestamp: 2021-05-27T18:38:04.750878
+ALTER TABLE "friends_list" ADD "user_email" CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

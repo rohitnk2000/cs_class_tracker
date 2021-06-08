@@ -1,0 +1,31 @@
+[[extend 'layout.html']]
+
+<div class="section">
+    <p class = "title is-3">Students Enrolled in <span>[[=className]]</span></p>
+    <table class="table is-striped is-fullwidth">
+        <tr>
+            <th>
+                Student Name
+            </th>
+
+            <th>
+                Student Email
+            </th>
+        </tr>
+        [[for row in rows:]]
+        
+        <tr>
+            <td>[[=row.student_name]]</td>
+            <td>[[=row.student_email]]</td>
+        </tr>
+
+        [[pass]]
+    </table>
+    <a class="button is-success" href = "[[=URL('index')]]">
+        <span>
+            <i class="fa fa-arrow-left"></i>
+        </span>
+        <span>Back</span>
+    </a>
+
+</div>

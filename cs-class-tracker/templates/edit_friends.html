@@ -1,0 +1,63 @@
+[[extend 'layout.html']]
+
+<div class="section">
+    <p class = "title is-3">Friends List</p>
+    <table class="table is-striped is-fullwidth">
+        <tr>
+            <th>
+                Student Name
+            </th>
+            <th>
+                Student Email
+            </th>
+        </tr>
+        [[for row in rows:]]
+        
+        <tr>
+            <td>[[=row.friend_name]]</td>
+            <td>[[=row.friend_email]]</td>
+            <td>
+                <a class="button is-danger" href = "[[=URL('remove_friend', row.id)]]">
+                    <span>
+                        <i class="fa fa-fw fa-trash"></i>
+                    </span>
+                    <span>Remove Friend</span>
+                </a>
+            </td>
+        </tr>
+
+        [[pass]]
+    </table>
+   
+
+
+    <div class = "section" id = "vue-target" v-cloak>
+        <div class="control block">
+            <input placeholder = "Search For Your Friends Here!" class="input" type="text" v-model = "query" @keyup = "search"/>
+        </div>
+
+        
+        <div v-for = "r in results">
+           <a @click = "add_from_search(r['id'])" >{{r['student_name']}}</a>
+        </div>
+
+    </div>
+    [[block page_scripts]]
+
+    <script>
+        let search_url = "[[=XML(search_url)]]";
+    </script>
+    <script src= "js/index.js"></script>
+    [[end ]]
+
+
+    <a class="button is-warning" href = "[[=URL('index')]]">
+        <span>
+            <i class="fa fa-arrow-left"></i>
+        </span>
+        <span>Back</span>
+    </a>
+
+
+
+</div>
